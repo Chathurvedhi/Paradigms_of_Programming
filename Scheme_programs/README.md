@@ -6,13 +6,15 @@ compact-iteration-space representation.
 Write a scheme function called iteration-space  that takes a list of three
 integers as input and returns the list of integers corresponding to
 the values of the index variable.
-For example (iteration-space '(0 10 2)) should return '(0 2 4 6 8 10)
+For example 
+	(iteration-space '(0 10 2)) should return '(0 2 4 6 8 10)
 
 Q2: Define a scheme function for-loop that takes two arguments: A function
 f, and a list of three numbers representing compact-iteration-space. The function for-loop should return a
 list that contains the values returned by the function for each element in
 the iteration-space of the loop.
-Example: (for-loop (lambda (x) (+ 3 x)) '(0 10 2)) should return '(3 5 7 9 11 13)
+Example: 
+	(for-loop (lambda (x) (+ 3 x)) '(0 10 2)) should return '(3 5 7 9 11 13)
    
 
 Q3. Define three scheme functions (make-iterator, next, hasNext) so that we can get the functionality of
@@ -25,16 +27,17 @@ The function next  should take an "iterator" created using make-iterator
 and return the next element, if one exists. Else it should return '()
 
 Example
-(define myItr (make-iterator '(0 10 2)))
-(next myItr) ; should return 0
-(hasNext myItr) should return #t
-(next myItr) ; should return 2
-(next myItr) ; should return 4
-(next myItr) ; should return 6
-(next myItr) ; should return 8
-(next myItr) ; should return 10
-(next myItr) ; should return '()
-(hasNext myItr) should return #f
+
+	(define myItr (make-iterator '(0 10 2)))
+	(next myItr) ; should return 0
+	(hasNext myItr) should return #t
+	(next myItr) ; should return 2
+	(next myItr) ; should return 4
+	(next myItr) ; should return 6
+	(next myItr) ; should return 8
+	(next myItr) ; should return 10
+	(next myItr) ; should return '()
+	(hasNext myItr) should return #f
 
 Q4. In a compiler it is common to create symbol-tables. Create three
 functions (create-symbol-table, extend-symbol-table, lookup) using which
@@ -42,25 +45,26 @@ we can create an initial symbol table, extend it and do lookup.
 You can infer the parameter details about the functions based on the
 following example.
 
-(define myST (create-symbol-table '((a 3) (b 6))))
-(lookup myST 'b) should return 6
-(lookup myST 'c) should return '()
-(define myST2 (extend-symbol-table myST '((e 2) (b 7) (d 5))))
-(lookup myST2 'b) should return 7
-(lookup myST2 'd) should return 5
-(lookup myST 'b) should return 6
+	(define myST (create-symbol-table '((a 3) (b 6))))
+	(lookup myST 'b) should return 6
+	(lookup myST 'c) should return '()
+	(define myST2 (extend-symbol-table myST '((e 2) (b 7) (d 5))))
+	(lookup myST2 'b) should return 7
+	(lookup myST2 'd) should return 5
+	(lookup myST 'b) should return 6
 
 Q5. Define a scheme function maximum-argument, which takes two arguments:
 a one argument function ff, and a list of arguments and returns that
 argument for which ff returns the maximum value.
-Example (maximum-argument (lambda (x) (* -3 x)) '(3 4 5)) should return 3
+Example 
+	(maximum-argument (lambda (x) (* -3 x)) '(3 4 5)) should return 3
 
 Q6. Define a function mix and unmix. 
 You can infer the parameter details about the functions based on the
 following example.
 
-(mix '(1 2 3) '(alpha beta gamma)) should return '((1 alpha) (2 beta) (3 gamma))
-(unmix '((1 alpha) (2 beta) (3 gamma))) should return  '((1 2 3) (alpha beta gamma))
+	(mix '(1 2 3) '(alpha beta gamma)) should return '((1 alpha) (2 beta) (3 gamma))
+	(unmix '((1 alpha) (2 beta) (3 gamma))) should return  '((1 2 3) (alpha beta gamma))
 
 Q7. Write a scheme function iter-fib that computes fibonacci without using
 recursion.  
@@ -79,14 +83,16 @@ Write functions setty-list-union  and setty-list-minus as follows:
 
 setty-list-union: takes two setty-lists, concats them and then makes the resulting list a setty-list.
 setty-list-minus: takes two setty-lists, and performs the minus operation as follows: 
-S1-S2: 
+
+	S1-S2: 
 	S3 = S1;
 	for each element x in S2: 
-		S3 = remove the first occurrence of x in S3.
+	S3 = remove the first occurrence of x in S3.
 	return S3
-(make-setty-list '(1 2 2 1 3)) should return '(1 2 1 3)
-(setty-list-union '(1 2 1 3) '(3 2)) should return '(1 2 1 3 2)
-(setty-list-minus '(1 2 1 3) '(1 3)) should return '(2 1)
+
+	(make-setty-list '(1 2 2 1 3)) should return '(1 2 1 3)
+	(setty-list-union '(1 2 1 3) '(3 2)) should return '(1 2 1 3 2)
+	(setty-list-minus '(1 2 1 3) '(1 3)) should return '(2 1)
 
 Q9. Write a scheme function eqGroupify that takes a binary function ff and
 a list ll of elements and then returns a list of lists such that for sublist
@@ -95,18 +101,16 @@ where two elements are considered equivalent if ff returns true for those
 elements.
 
 Example:
-(eqGroupify = '(1 2 3 4 2 3 4 3 4)) should return  '((1) (2 2) (3 3 3) (4 4 4))'
+	(eqGroupify = '(1 2 3 4 2 3 4 3 4)) should return  '((1) (2 2) (3 3 3) (4 4 4))'
 
-(eqGroupify (lambda (x y) (eq? (remainder x 3) (remainder y 3))) '(1 2 3 4 5 6))
-should return
-'((1 4) (2 5) (3 6))
+	(eqGroupify (lambda (x y) (eq? (remainder x 3) (remainder y 3))) '(1 2 3 4 5 6)) should return '((1 4) (2 5) (3 6))
 
 Q10. Write scheme function push-element that takes a list as argument and
 pushes all the elements inside the sublists of the list such that all the
 elements of the list are at the same level of nesting.
 
 Example:
-(push-element '(1 2 (3))) should return '((1 2 3))
-(push-element '(1 2 (3) ((4)))) should return '(((1 2 3 4)))
-(push-element '((1 2) (3 4))) should return '((1 2 3 4))
-(push-element '((1 2) (3 4) 5)) should return '((1 2 3 4 5))
+	(push-element '(1 2 (3))) should return '((1 2 3))
+	(push-element '(1 2 (3) ((4)))) should return '(((1 2 3 4)))
+	(push-element '((1 2) (3 4))) should return '((1 2 3 4))
+	(push-element '((1 2) (3 4) 5)) should return '((1 2 3 4 5))
