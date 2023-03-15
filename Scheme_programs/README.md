@@ -7,6 +7,7 @@ Write a scheme function called iteration-space  that takes a list of three
 integers as input and returns the list of integers corresponding to
 the values of the index variable.
 For example 
+
 	(iteration-space '(0 10 2)) should return '(0 2 4 6 8 10)
 
 Q2: Define a scheme function for-loop that takes two arguments: A function
@@ -14,6 +15,7 @@ f, and a list of three numbers representing compact-iteration-space. The functio
 list that contains the values returned by the function for each element in
 the iteration-space of the loop.
 Example: 
+
 	(for-loop (lambda (x) (+ 3 x)) '(0 10 2)) should return '(3 5 7 9 11 13)
    
 
@@ -57,6 +59,7 @@ Q5. Define a scheme function maximum-argument, which takes two arguments:
 a one argument function ff, and a list of arguments and returns that
 argument for which ff returns the maximum value.
 Example 
+
 	(maximum-argument (lambda (x) (* -3 x)) '(3 4 5)) should return 3
 
 Q6. Define a function mix and unmix. 
@@ -101,6 +104,7 @@ where two elements are considered equivalent if ff returns true for those
 elements.
 
 Example:
+
 	(eqGroupify = '(1 2 3 4 2 3 4 3 4)) should return  '((1) (2 2) (3 3 3) (4 4 4))'
 
 	(eqGroupify (lambda (x y) (eq? (remainder x 3) (remainder y 3))) '(1 2 3 4 5 6)) should return '((1 4) (2 5) (3 6))
@@ -110,6 +114,7 @@ pushes all the elements inside the sublists of the list such that all the
 elements of the list are at the same level of nesting.
 
 Example:
+
 	(push-element '(1 2 (3))) should return '((1 2 3))
 	(push-element '(1 2 (3) ((4)))) should return '(((1 2 3 4)))
 	(push-element '((1 2) (3 4))) should return '((1 2 3 4))
